@@ -1,3 +1,20 @@
+// import {
+//   sum as sumNum,
+//   a,
+//   usProf,
+// } from './script2.mjs'
+
+// const {name,age,sex} = usProf
+
+// Object.keys(usProf).forEach((el)=>{
+//   const val = usProf[el]
+//   console.log(`${el} : ${val}`);
+// })
+
+// console.log(a);
+// const res = sumNum(2,5)
+
+
 // let nameU = null;
 // let passU = null;
 // let dickSize = null;
@@ -97,3 +114,64 @@
 // userInfo(userProfile)
 
 
+
+
+
+
+// let a = 10
+
+// let b = 20
+
+
+// // console.log(condition ? true : false);
+// console.log(a > b ? 10 : 20);
+
+
+
+
+// const arr = [1,2,3]
+
+// for ( qwe in arr ) {
+//   console.log(qwe);
+// }
+
+// const my = {
+//   x:20,
+//   y:true,
+//   z: 'qwe'
+// }
+
+// // value - значения keys - ключи
+// // Object.keys/values(nameObject).forEach(el => {...})
+
+// Object.values(my).forEach(el => {
+//   console.log(el);
+// });
+
+// const arr = [1,2,3]
+
+// // for ( el of string/massive) {...}
+// for ( el of arr ) {
+//   console.log(el);
+// }
+
+
+class Comment {
+  constructor(text) {
+    this.text = text
+    this.votes = 0
+  }
+
+  upvote() {
+    this.votes +=1
+    console.log(this.votes);
+  }
+}
+
+const first = new Comment('First Comment')
+// console.log(first);
+// first.upvote()
+
+console.log(first.text);
+
+console.log(first instanceof Object);
