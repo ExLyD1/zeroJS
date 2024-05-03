@@ -156,22 +156,43 @@
 // }
 
 
-class Comment {
-  constructor(text) {
-    this.text = text
-    this.votes = 0
-  }
+// class Comment {
+//   constructor(text) {
+//     this.text = text
+//     this.votes = 0
+//   }
 
-  upvote() {
-    this.votes +=1
-    console.log(this.votes);
-  }
-}
+//   upvote() {
+//     this.votes +=1
+//     console.log(this.votes);
+//   }
+//   static mergeComments(first,second){
+//     return `${first} ${second}`
+//   }
+// }
+// // static - делает классу свойство функцию в доступе не для екземпляров а для класа
+// console.log(Comment.mergeComments('first comment', 'second comment'))
 
-const first = new Comment('First Comment')
-// console.log(first);
-// first.upvote()
-first.hasOwnProperty('text')
-console.log(first.text);
+// const first = new Comment('First Comment')
+// const second = new Comment('second Comment')
+// const third = new Comment('third Comment')
+// // console.log(first);
+// // first.upvote()
+// first.hasOwnProperty('text') // возвращает логическое значение, указывающее, содержит ли объект указанное свойство
+// console.log(first.text);
 
-console.log(first instanceof Object);
+// console.log(first instanceof Object); // принадлежит ли объект к определённому классу
+
+
+
+// extends Name - используется в объявлении класса или в выражениях класса для создания дочернего класса.
+// class NumbersArr extends Array {
+//   sum() {
+//     return this.reduce((el,acc) => acc += el,0)
+//   }
+// }
+
+// const myArr = new NumbersArr(2,5,7)
+// console.log(myArr);
+// myArr.sum()
+
