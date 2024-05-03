@@ -171,7 +171,7 @@ class Comment {
 const first = new Comment('First Comment')
 // console.log(first);
 // first.upvote()
-
+first.hasOwnProperty('text')
 console.log(first.text);
 
 console.log(first instanceof Object);
