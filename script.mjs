@@ -196,3 +196,25 @@
 // console.log(myArr);
 // myArr.sum()
 
+
+function getSum(a, b)
+{
+  let c = 0;
+  if ( b > a ) {
+    
+    for ( let i = a; i != b+1; i++ ) {
+      c += i
+    }
+
+    return c
+  } else if ( a === b ) {
+    return a;
+  } else {
+      for ( let i = b; i != a+1; i++ ) {
+        c += i
+      }
+      return c
+  }
+}
+
+getSum(0,-1);
