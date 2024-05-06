@@ -197,24 +197,112 @@
 // myArr.sum()
 
 
-function getSum(a, b)
-{
-  let c = 0;
-  if ( b > a ) {
-    
-    for ( let i = a; i != b+1; i++ ) {
-      c += i
+// function descendingOrder(n){
+//   let numS = n.toString();
+//   let arr = numS.split('').map(Number);
+//   arr = arr.sort().reverse().join('');;
+//   arr = parseInt(arr)
+//   return arr
+
+// }
+
+// descendingOrder(123456789)
+
+
+// if ( el === 'n' || el === 'e' ) {
+//         num += 1;
+//       } else if ( el === 'w' || el === 's') {
+//         num -= 1;
+//       } else {
+//         return false;
+//       }
+
+
+
+// function isValidWalk(walk) {
+//   let arr = walk.join('');
+//   let num = 0;
+//   if ( arr.length === 10 ) {
+//     for ( el of arr ) {
+//         if ( el === 'n' || el === 'e' ) {
+//           num += 1;
+//         } else if ( el === 'w' || el === 's' ) {
+//           num -= 1;
+//         } else {
+//           return false;
+//         }
+//       }
+//     if ( num === 0 ) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   } else if ( arr.length != 10 ) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// }
+
+// function longest(s1, s2) {
+//   let arr = [];
+//   arr.push(s1);
+//   arr.push(s2)
+//   arr = arr.join('')
+//   arr = arr.split('').sort()
+//   let newArr = [];
+//   for ( let i = 0; i < arr.length; i++ ) {
+//     if ( arr[i] != arr[i+1]) {
+//       newArr.push(arr[i])
+//     }
+//   }
+//   console.log([newArr.join('')]);
+// }
+// longest('qqqqwwweee', 'aaasssddd')
+
+// adesqw
+
+
+
+
+
+
+// function disemvowel(str) {
+//   let a = [];
+//   let fullA = [];
+//   for (let i = 0; i < str.length; i++) {
+//     a.push(str[i])
+//   }
+//   console.log(a);
+//   a.forEach( (el) => {
+//     if ( el != 'a' && el != 'A' && el != 'e' && el != 'E'&& el != 'i' && el != 'I' && el != 'o' && el != 'O' && el != 'u' && el != 'U' && el != 'y' && el != 'Y') {
+//       fullA.push(el)
+//     }
+//   })
+//   return fullA.join('')
+// }
+// disemvowel('aawaa')
+
+
+// let a = 'AbA';
+
+
+// console.log(a.replace(/A/i, ''));
+
+
+
+function divisors(integer) {
+  let a = [];
+  for ( let i = 2; i < integer; i++) {
+    if ( Number.isInteger( integer/i )) {
+      a.push(i)
     }
-
-    return c
-  } else if ( a === b ) {
-    return a;
-  } else {
-      for ( let i = b; i != a+1; i++ ) {
-        c += i
-      }
-      return c
   }
-}
-
-getSum(0,-1);
+  if ( a.length === 0 ) {
+    console.log(`${integer} is prime`);
+  } else {
+    console.log(a);
+  }
+};
+divisors(13)
+divisors(100)
