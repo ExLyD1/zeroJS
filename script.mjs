@@ -291,18 +291,62 @@
 
 
 
-function divisors(integer) {
-  let a = [];
-  for ( let i = 2; i < integer; i++) {
-    if ( Number.isInteger( integer/i )) {
-      a.push(i)
-    }
-  }
-  if ( a.length === 0 ) {
-    console.log(`${integer} is prime`);
-  } else {
-    console.log(a);
-  }
-};
-divisors(13)
-divisors(100)
+// function divisors(integer) {
+//   let a = [];
+//   for ( let i = 2; i < integer; i++) {
+//     if ( Number.isInteger( integer/i )) {
+//       a.push(i)
+//     }
+//   }
+//   if ( a.length === 0 ) {
+//     console.log(`${integer} is prime`);
+//   } else {
+//     console.log(a);
+//   }
+// };
+// divisors(13)
+// divisors(100)
+
+// resolve - удачная фукнция
+// reject - неудачная функция ( фейл )
+// const chlen = new Promise((resolve, reject) => {
+  
+// });
+
+// chlen 
+//   .then(value => {
+//     // описываем если промис удачный ( resolve )
+//   })
+//   .catch(error => {
+//     // описываем если промис неудачный ( reject )
+//   })
+
+
+
+fetch('https://jsonplaceholder.typicode.com/todos')
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(error => console.error(error))
+
+
+  const getData = (url) => 
+    new Promise((resolve, reject) => {
+      fetch(url)
+        .then(response => response.json())
+        .then(json => resolve(json))
+        .catch(error => reject(error))
+
+    })
+getData('https://jsonplaceholder.typicode.com/todos')
+    .then(data => console.log(data))
+    .catch(error => console.log(error.message))
+
+async function as() {
+  //всегда возвращает Промис
+}
+
+const as = async () => {
+  return 'success!'
+}
+as()
+
