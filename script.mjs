@@ -497,3 +497,61 @@
 // }
 
 // console.log(arr1.mul(2));
+
+// function calc(n) {
+//   return function () {
+//     console.log(1000 * n);
+//   }
+// }
+
+// const qwe = calc(22)
+// qwe()
+
+// function create(n) {
+//   return function (num) {
+//     return n + num
+//   }
+// }
+
+// const add1 = create(1)
+// const add10 = create(10)
+// console.log(add10(10));
+
+
+// function urlGen(domain) {
+//   return function(url) {
+//     return `https://${url}.${domain}`
+//   }
+// }
+
+// const comUrl = urlGen('com')
+// const uaUrl = urlGen('ua')
+
+// console.log(comUrl('google'));
+// console.log(uaUrl('vseosvita'));
+
+
+
+function bind(pers, fn) {
+  return function(...args) {
+    fn.apply(pers, args)
+  }
+}
+
+function logPerson() {
+  console.log(`Person: ${this.name}, ${this.age}, ${this.job} `);
+}
+const person1 = {
+  name:'elena',
+  age:23,
+  job:'frontend'
+}
+
+const person2 = {
+  name: 'vlad',
+  age:21,
+  job:'backend'
+}
+
+bind(person1, logPerson)()
+bind(person2, logPerson)()
