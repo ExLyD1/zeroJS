@@ -436,12 +436,64 @@
 //   })
 // })
 
-const sleep = ms => new Promise(resolve => {
-  setTimeout(() => resolve(), ms);
-})
+// const sleep = ms => new Promise(resolve => {
+//   setTimeout(() => resolve(), ms);
+// })
 
-sleep(2000).then( () => { console.log('chull'); })
+// sleep(2000).then( () => { console.log('chull'); })
 
-Promise.all( [sleep(2000), sleep(4000)]).then(() => {
-  console.log('good');
-})
+// Promise.all( [sleep(2000), sleep(4000)]).then(() => {
+//   console.log('good');
+// })
+
+// function hello() {
+//   console.log('hello', this);
+// }
+
+// const person = {
+//   name:'vlad',
+//   age:20,
+//   sayHello: hello,
+//   seyHelloWindow: hello.bind(document),
+//   logInfo : function (job, phone) {
+//     console.group(`${this.name} info:`);
+//     console.log(`name is ${this.name}`);
+//     console.log(`age is ${this.age}`);
+//     console.log(`job is ${job}`);
+//     console.log(`phone is ${phone}`);
+//     console.groupEnd()
+//   }
+// }
+
+// const lena = {
+//   name : 'elena',
+//   age: 23,
+
+// }
+// // .bind - задает контекст
+// // .call - задает контекст и сразу вызывает функцию
+// // .apply - задает контекст и сразу вызывает функцию ( передает параметры через массив)
+// let par = ['frontednd' , '190249190249']
+// person.logInfo.bind(lena, 'frontednd' , '190249190249')();
+// person.logInfo.call(lena, 'frontednd' , '190249190249');
+// person.logInfo.apply(lena, par);
+
+
+
+// const arr1 = [1,2,3,4,5]
+
+// // function mul(arr, n) {
+// //   return arr.map(function(i) {
+// //     console.log(i * n); 
+// //   })
+// // }
+// // mul(arr1, 2)
+
+// Array.prototype.mul = function(n) {
+//   return this.map(function(i) {
+//     return i * n
+//   })
+
+// }
+
+// console.log(arr1.mul(2));
