@@ -532,26 +532,61 @@
 
 
 
-function bind(pers, fn) {
-  return function(...args) {
-    fn.apply(pers, args)
-  }
-}
+// function bind(pers, fn) {
+//   return function(...args) {
+//     fn.apply(pers, args)
+//   }
+// }
 
-function logPerson() {
-  console.log(`Person: ${this.name}, ${this.age}, ${this.job} `);
-}
-const person1 = {
-  name:'elena',
-  age:23,
-  job:'frontend'
-}
+// function logPerson() {
+//   console.log(`Person: ${this.name}, ${this.age}, ${this.job} `);
+// }
+// const person1 = {
+//   name:'elena',
+//   age:23,
+//   job:'frontend'
+// }
 
-const person2 = {
-  name: 'vlad',
-  age:21,
-  job:'backend'
-}
+// const person2 = {
+//   name: 'vlad',
+//   age:21,
+//   job:'backend'
+// }
 
-bind(person1, logPerson)()
-bind(person2, logPerson)()
+// bind(person1, logPerson)()
+// bind(person2, logPerson)()
+
+// const person = Object.create({
+//   calcAge() {
+//     console.log( `Data: ${ new Date().getFullYear - this.birthYar}`);
+//   }
+// }, {
+//   name: {
+//     value: 'vlad',
+//     enumerable:true,
+//     writable:true,
+//     configurable:true,
+//   },
+//   birthYar: {
+//     value: 1992,
+//     enumerable:false,
+//     writable: false,
+//     configurable:false,
+//   },
+//   age : {
+//     get() {
+//       return 'helo'
+//     },
+//     set(value) {
+
+//       console.log(`Set age ${value}`);
+//     }
+//   }
+// })
+
+// for (const key in person) {
+//   if (person.hasOwnProperty(key)) {
+//     console.log('Key : ', key , person[key]);
+//   }
+  
+// }
