@@ -383,10 +383,30 @@
 
 // getData('https://jsonplaceholder.typicode.com/todos')
 
-const getData = async (url) => {
-  const res = await fetch(url)
-  const json = await res.json()
-  console.log(json);
-}
-const url = 'https://jsonplaceholder.typicode.com/todos'
-const data = getData(url)
+// const getData = async (url) => {
+//   const res = await fetch(url)
+//   const json = await res.json()
+//   console.log(json);
+// }
+// const url = 'https://jsonplaceholder.typicode.com/todos'
+// const data = getData(url)
+
+
+console.log('req');
+
+setTimeout(() => {
+  console.log('preparing');
+
+  const back = {
+    server: 'avs',
+    port:2000,
+    status:'working'
+  }
+
+
+  setTimeout(() => {
+    back.modified = true
+    console.log('recieved', back);
+  }, 2000);
+}, 2000);
+
