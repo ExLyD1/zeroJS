@@ -392,21 +392,56 @@
 // const data = getData(url)
 
 
-console.log('req');
+// console.log('req');
 
-setTimeout(() => {
-  console.log('preparing');
+// setTimeout(() => {
+//   console.log('preparing');
 
-  const back = {
-    server: 'avs',
-    port:2000,
-    status:'working'
-  }
+//   const back = {
+//     server: 'avs',
+//     port:2000,
+//     status:'working'
+//   }
 
 
-  setTimeout(() => {
-    back.modified = true
-    console.log('recieved', back);
-  }, 2000);
-}, 2000);
+//   setTimeout(() => {
+//     back.modified = true
+//     console.log('recieved', back);
+//   }, 2000);
+// }, 2000);
 
+// const p = new Promise((resolve, reject) => {
+//   console.log('req');
+//   setTimeout(() => {
+//     console.log('preparing...');
+//     const back = {
+//       server: 'avs',
+//       port:2000,
+//       status:'working',
+//     }
+//     resolve(back)
+//   }, 2000);
+// })
+
+// p.then( data => {
+//   const p2 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       data.mod = true
+//       resolve(data)
+//     }, 2000);
+//   })
+
+//   p2.then(dataw => {
+//     console.log('res', dataw);
+//   })
+// })
+
+const sleep = ms => new Promise(resolve => {
+  setTimeout(() => resolve(), ms);
+})
+
+sleep(2000).then( () => { console.log('chull'); })
+
+Promise.all( [sleep(2000), sleep(4000)]).then(() => {
+  console.log('good');
+})
