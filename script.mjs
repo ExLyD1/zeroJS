@@ -323,30 +323,70 @@
 
 
 
-fetch('https://jsonplaceholder.typicode.com/todos')
-  .then(response => response.json())
-  .then(json => console.log(json))
-  .catch(error => console.error(error))
+// fetch('https://jsonplaceholder.typicode.com/todos')
+//   .then(response => response.json())
+//   .then(json => console.log(json))
+//   .catch(error => console.error(error))
 
 
-  const getData = (url) => 
-    new Promise((resolve, reject) => {
-      fetch(url)
-        .then(response => response.json())
-        .then(json => resolve(json))
-        .catch(error => reject(error))
+//   const getData = (url) => 
+//     new Promise((resolve, reject) => {
+//       fetch(url)
+//         .then(response => response.json())
+//         .then(json => resolve(json))
+//         .catch(error => reject(error))
 
-    })
-getData('https://jsonplaceholder.typicode.com/todos')
-    .then(data => console.log(data))
-    .catch(error => console.log(error.message))
+//     })
+// getData('https://jsonplaceholder.typicode.com/todos')
+//     .then(data => console.log(data))
+//     .catch(error => console.log(error.message))
 
-async function as() {
-  //всегда возвращает Промис
+// async function as() {
+//   //всегда возвращает Промис
+// }
+
+// const as = async () => {
+//   return 'success!'
+// }
+// as();
+//   .then(value => console.log(value));
+//   .catch(error => console.log(error.message));
+
+
+// const timerPromise = async () => {
+//   const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+//   console.log(response);
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve();
+//     }, 2000);
+//   });
+// };
+
+// const asyncFn = async () => {
+//   console.log('timer start');
+//   await timerPromise();
+//   console.log('timer end');
+// };
+// asyncFn();
+
+// let a;
+
+// const getData = async (url) => {
+//   await fetch(url)
+//     .then(response => {
+//       a = response
+//       console.log(a);
+//     })
+//   console.log(33);
+// }
+
+// getData('https://jsonplaceholder.typicode.com/todos')
+
+const getData = async (url) => {
+  const res = await fetch(url)
+  const json = await res.json()
+  console.log(json);
 }
-
-const as = async () => {
-  return 'success!'
-}
-as()
-
+const url = 'https://jsonplaceholder.typicode.com/todos'
+const data = getData(url)
