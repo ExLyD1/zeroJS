@@ -590,3 +590,109 @@
 //   }
   
 // }
+
+
+const delay = ms => {
+  return new Promise(r => setTimeout(() => r(),ms))
+}
+
+const url = 'https://jsonplaceholder.typicode.com/todos'
+
+// function fetchTodos() {
+//   console.log('start...');
+//   return delay(2000)
+//   .then(() => {
+//     return fetch(url)
+//   })
+//   .then(response => response.json())
+// }
+
+// fetchTodos()
+//   .then(data => {
+//     console.log('data : ', data);
+//     return delay(2000)
+//     .then( () => {
+//       console.log('ended');
+//     })
+//   })
+//   .catch(e => console.error(e))
+
+
+// const as = async () => {
+//   console.log('start...');
+//   await delay(2000)
+//   const response = await fetch(url) 
+//   const data = await response.json()
+//   console.log(response);
+//   await delay(2000)
+//   console.log('data : ', data);
+//   await delay(2000)
+//   console.log('ended...');
+// }
+// as()
+
+Object
+const person = {
+  name:'vladilen',
+  age:25,
+  job:'front',
+}
+
+const op = new Proxy(person, {
+  get(target, prop) {
+    console.log(`Getting prop ${prop}`);
+    if (!prop in target) {
+      return prop
+      .split('_')
+      .map(p => target[p])
+      .join(' ')
+    }
+    return target[prop]
+  },
+  set(target, prop, value) {
+    if ( prop in target) {
+    target[prop] = value
+    } else {
+      throw new Error(`No ${prop} field in target`)
+    }
+  },
+  has(target, prop) {
+    return ['age', 'name', 'job'].includes(prop)
+  },
+  deleteProperty(target,prop){
+    console.log(`Deliting... ${prop}`);
+    delete target[prop]
+  },
+});
+
+// Functions
+const log = text => `Log: ${text}`
+
+
+const fp = new Proxy(log, {
+  apply( target, thisArg, args) {
+    console.log(`calling fn...`);
+
+    return target.apply(thisArg,args).toUpperCase()
+  }
+})
+fp()
+
+
+// // Classes
+// class Person() {
+//   constructor(name,age) {
+//     this.name = name
+//     this.age = age
+//   }
+// }
+
+// const PersonProxy = new Proxy(Person, {
+//   construct(target,args) {
+//     console.log(`Constract...`);
+
+//     return new target(...args)
+//   }
+// });
+
+// const p = new PersonProxy('Maxim',30)
