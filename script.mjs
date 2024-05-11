@@ -64,7 +64,7 @@
 // sex()
 // console.log(a, b);
 
-// let a =0;
+// let a = 0;
 // console.log(!!a);
 
 
