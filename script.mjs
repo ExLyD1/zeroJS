@@ -679,7 +679,7 @@ const fp = new Proxy(log, {
 fp()
 
 
-// // Classes
+// Classes
 // class Person() {
 //   constructor(name,age) {
 //     this.name = name
