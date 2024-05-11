@@ -631,7 +631,7 @@ const url = 'https://jsonplaceholder.typicode.com/todos'
 // }
 // as()
 
-Object
+//Object
 const person = {
   name:'vladilen',
   age:25,
