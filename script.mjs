@@ -622,7 +622,7 @@ const url = 'https://jsonplaceholder.typicode.com/todos'
 //   console.log('start...');
 //   await delay(2000)
 //   const response = await fetch(url) 
-//   const data = await response.json()
+//   const data = await response.json() segodnya chill
 //   console.log(response);
 //   await delay(2000)
 //   console.log('data : ', data);
