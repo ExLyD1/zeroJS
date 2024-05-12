@@ -582,9 +582,9 @@
 //       console.log(`Set age ${value}`);
 //     }
 //   }
-// })
+// }) krasota
 
-// for (const key in person) {
+// for (const key in person) { 
 //   if (person.hasOwnProperty(key)) {
 //     console.log('Key : ', key , person[key]);
 //   }
