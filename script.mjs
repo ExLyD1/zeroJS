@@ -632,51 +632,51 @@ const url = 'https://jsonplaceholder.typicode.com/todos'
 // as()
 
 //Object
-const person = {
-  name:'vladilen',
-  age:25,
-  job:'front',
-}
+// const person = {
+//   name:'vladilen',
+//   age:25,
+//   job:'front',
+// }
 
-const op = new Proxy(person, {
-  get(target, prop) {
-    console.log(`Getting prop ${prop}`);
-    if (!prop in target) {
-      return prop
-      .split('_')
-      .map(p => target[p])
-      .join(' ')
-    }
-    return target[prop]
-  },
-  set(target, prop, value) {
-    if ( prop in target) {
-    target[prop] = value
-    } else {
-      throw new Error(`No ${prop} field in target`)
-    }
-  },
-  has(target, prop) {
-    return ['age', 'name', 'job'].includes(prop)
-  },
-  deleteProperty(target,prop){
-    console.log(`Deliting... ${prop}`);
-    delete target[prop]
-  },
-});
+// const op = new Proxy(person, {
+//   get(target, prop) {
+//     console.log(`Getting prop ${prop}`);
+//     if (!prop in target) {
+//       return prop
+//       .split('_')
+//       .map(p => target[p])
+//       .join(' ')
+//     }
+//     return target[prop]
+//   },
+//   set(target, prop, value) {
+//     if ( prop in target) {
+//     target[prop] = value
+//     } else {
+//       throw new Error(`No ${prop} field in target`)
+//     }
+//   },
+//   has(target, prop) {
+//     return ['age', 'name', 'job'].includes(prop)
+//   },
+//   deleteProperty(target,prop){
+//     console.log(`Deliting... ${prop}`);
+//     delete target[prop]
+//   },
+// });
 
-// Functions
-const log = text => `Log: ${text}`
+// // Functions
+// const log = text => `Log: ${text}`
 
 
-const fp = new Proxy(log, {
-  apply( target, thisArg, args) {
-    console.log(`calling fn...`);
+// const fp = new Proxy(log, {
+//   apply( target, thisArg, args) {
+//     console.log(`calling fn...`);
 
-    return target.apply(thisArg,args).toUpperCase()
-  }
-})
-fp()
+//     return target.apply(thisArg,args).toUpperCase()
+//   }
+// })
+// fp()
 
 
 // Classes
@@ -696,3 +696,53 @@ fp()
 // });
 
 // const p = new PersonProxy('Maxim',30)
+
+
+
+
+// function* strGenerator() {
+//   yield 'H'
+//   yield 'E'
+//   yield 'L'
+//   yield 'L'
+//   yield 'O'
+  
+// }
+
+// const str = strGenerator()
+
+// str.next()
+
+// function numberGen( n = 10) {
+//   for (let i = 0; i < n; i++) {
+//     yield i
+    
+//   }
+// }
+// const num = numberGen(7)
+
+
+// const iterator = {
+//   [Symbol.iterator]( n = 10 ){
+//     let i = 0
+
+//     return {
+//       next() {
+//         if (i < n) {
+//           return {value : ++i, done : false}
+//         }
+//         return {value : undefined, done : true}
+//       }
+//     }
+//   }
+// }
+
+function iter(n) {
+  for (let i; i < n; i++){
+    yield i
+  }
+}
+
+for ( let k of iter(6)) {
+  console.log(k);
+}
