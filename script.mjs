@@ -737,12 +737,126 @@ const url = 'https://jsonplaceholder.typicode.com/todos'
 //   }
 // }
 
-function iter(n) {
-  for (let i; i < n; i++){
-    yield i
-  }
+// function iter(n) {
+//   for (let i; i < n; i++){
+//     yield i
+//   }
+// }
+
+// for ( let k of iter(6)) {
+//   console.log(k);
+// }
+
+
+// people = [
+//   {name:'vlad', age:11, job: 'searching...'},
+//   {name:'bada', age:47, job: 'searching...'},
+//   {name:'qwe', age:69, job: 'searching...'},
+//   {name:'sasha', age:14, job: 'searching...'},
+//   {name:'ivan', age:45, job: 'searching...'},
+
+// ]
+// // map - такое же как и forEach только возвращает новый массив
+
+
+// const peopleFor = people.map( obj => `${obj.name} (${obj.age})` );
+// console.log(people);
+// console.log(peopleFor);
+
+
+// // filter - делает проверку и если true значение для каждого елемента то оставляет если нет то удаляет
+// const adults = people.filter(person => {
+//   if (person.age >=18) {
+//     return true
+//   }
+// })
+
+
+// // reduce - принимает два параметра (total, element), и начало
+// const amount = people.reduce( (total, person) => {
+//   return total += person.age
+// }, 0)
+
+
+
+
+// // Find 
+
+// const sasha = people.find( person => person.name === 'sasha')
+// console.log(sasha);
+
+
+// // FindIndex
+
+// const sashaIndex = people.findIndex(person => person.name === 'sasha')
+// console.log(sashaIndex);
+
+// ======================
+
+
+
+// const obj = {
+//   name: 'vald',
+//   age:22,
+//   job:'fullstack'
+// }
+
+// const entries = [
+//   ['name','vald'],
+//   ['age', 26],
+//   ['job', 'fullstack'],
+// ]
+
+// // console.log(Object.entries(obj));
+// // console.log(Object.fromEntries(entries));
+
+// const map = new Map(entries)
+
+// map
+//   .set('newfield', 42)
+//   .set(obj, 'value of obj')
+
+// ======================
+
+const requestURL = 'https://jsonplaceholder.typicode.com/users'
+
+
+
+
+function sendRequest(method, url, body = null) {
+  return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest()
+
+    xhr.open(method, url)
+
+    xhr.responseType = 'json'
+    xhr.setRequestHeader('Content-Type', 'applicaton/json')
+
+    xhr.onload = () => {
+      if (xhr.status >= 400) {
+        reject(xhr.response) 
+      } else {
+        resolve(xhr.response);
+      }
+      console.log(xhr.response);
+    }
+    xhr.onerror = () => {
+      reject(xhr.response)
+    }
+
+    xhr.send(JSON.stringify(body))
+  })
 }
 
-for ( let k of iter(6)) {
-  console.log(k);
+// sendRequest('GET', requestURL)
+//   .then(data => console.log(data))
+//   .catch(error => console.log(error))
+
+
+const body = {
+  name:'vlad',
+  age:21,
 }
+sendRequest('POST', requestURL, body)
+  .then(data => console.log(data))
+  .catch(error => console.log(error))
