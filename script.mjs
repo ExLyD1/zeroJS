@@ -818,45 +818,156 @@ const url = 'https://jsonplaceholder.typicode.com/todos'
 
 // ======================
 
-const requestURL = 'https://jsonplaceholder.typicode.com/users'
+// const requestURL = 'https://jsonplaceholder.typicode.com/users'
 
 
 
 
-function sendRequest(method, url, body = null) {
-  return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest()
+// function sendRequest(method, url, body = null) {
+//   return new Promise((resolve, reject) => {
+//       const xhr = new XMLHttpRequest()
 
-    xhr.open(method, url)
+//     xhr.open(method, url)
 
-    xhr.responseType = 'json'
-    xhr.setRequestHeader('Content-Type', 'applicaton/json')
+//     xhr.responseType = 'json'
+//     xhr.setRequestHeader('Content-Type', 'applicaton/json')
 
-    xhr.onload = () => {
-      if (xhr.status >= 400) {
-        reject(xhr.response) 
-      } else {
-        resolve(xhr.response);
-      }
-      console.log(xhr.response);
-    }
-    xhr.onerror = () => {
-      reject(xhr.response)
-    }
+//     xhr.onload = () => {
+//       if (xhr.status >= 400) {
+//         reject(xhr.response) 
+//       } else {
+//         resolve(xhr.response);
+//       }
+//       console.log(xhr.response);
+//     }
+//     xhr.onerror = () => {
+//       reject(xhr.response)
+//     }
 
-    xhr.send(JSON.stringify(body))
-  })
-}
+//     xhr.send(JSON.stringify(body))
+//   })
+// }
 
-// sendRequest('GET', requestURL)
+// // sendRequest('GET', requestURL)
+// //   .then(data => console.log(data))
+// //   .catch(error => console.log(error))
+
+
+// const body = {
+//   name:'vlad',
+//   age:21,
+// }
+// sendRequest('POST', requestURL, body)
 //   .then(data => console.log(data))
 //   .catch(error => console.log(error))
 
 
-const body = {
-  name:'vlad',
-  age:21,
+
+
+// ======================
+
+
+// const citiesUkraine = ['odessa', 'kyiv', 'harkov', 'mukolaev']
+// const citiesEu = ['berlin', 'praga', 'parizh']
+
+// const citiesUkrainePop = {
+//   odessa : 5,
+//   kyiv: 15,
+//   harkov: 10,
+//   mukolaev:1,
+// }
+
+// const citiesEuPop = {
+//   berlin: 12,
+//   praga: 9,
+//   parizh: 13,
+// }
+
+// Spread
+
+// console.log(...citiesEu, ...citiesUkraine);
+// console.log({...citiesUkrainePop, ...citiesEuPop})
+
+// const numbers = [5,1,77,1,123,6]
+
+// console.log(Math.max(...numbers));
+
+// const divs = [...document.querySelectorAll('div')]
+// console.log(divs);
+// console.log(divs);
+
+
+
+
+/// Rest
+
+// function sum(a,b, ...rest) {
+//   return a + b + rest.reduce((a,i) => {
+//     console.log(a,i);
+//     return a + i
+    
+//   }, 0)
+// }
+
+// const numbers =[ 1,2,3,4,5]
+
+// // console.log(sum(...numbers));
+
+// // const a = numbers[0]
+// // const b = numbers[1]
+
+// const [a,b] = numbers
+
+// console.log(a,b);
+
+// const person = {
+//   name:'Alex',
+//   age:20,
+//   city:'Kyiv',
+//   country:'Ukraine',
+// }
+
+// const {name,age} = person
+
+// console.log(name,age);
+
+function calc(a,b) {
+  return [
+    a+b,
+    a-b,
+    a*b,
+    a/b
+  ]
 }
-sendRequest('POST', requestURL, body)
-  .then(data => console.log(data))
-  .catch(error => console.log(error))
+
+const [sum ,sub = 'Вычитания нет', ...rest] = calc(42,10)
+
+// const sum = result[0]
+// const sub = result[1]
+
+// console.log(sum,sub,...rest)
+
+const person = {
+  name:'Alex',
+  age:20,
+  addres: {
+    city:'Kyiv',
+    country:'Ukraine',
+  },
+}
+
+// const {
+//   name : firstName,
+//   age,
+//   car = 'don`t have a car',
+  
+//   addres: {city:hometown, country}
+// } = person
+// console.log(firstName,age,car,hometown,country);
+
+// const {name,...info} = person
+
+// console.log(name,info);
+
+
+
