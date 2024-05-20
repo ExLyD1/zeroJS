@@ -931,43 +931,72 @@ const url = 'https://jsonplaceholder.typicode.com/todos'
 
 // console.log(name,age);
 
-function calc(a,b) {
-  return [
-    a+b,
-    a-b,
-    a*b,
-    a/b
-  ]
-}
+// function calc(a,b) {
+//   return [
+//     a+b,
+//     a-b,
+//     a*b,
+//     a/b
+//   ]
+// }
 
-const [sum ,sub = 'Вычитания нет', ...rest] = calc(42,10)
+// const [sum ,sub = 'Вычитания нет', ...rest] = calc(42,10)
 
-// const sum = result[0]
-// const sub = result[1]
+// // const sum = result[0]
+// // const sub = result[1]
 
-// console.log(sum,sub,...rest)
+// // console.log(sum,sub,...rest)
 
-const person = {
-  name:'Alex',
-  age:20,
-  addres: {
-    city:'Kyiv',
-    country:'Ukraine',
-  },
-}
+// const person = {
+//   name:'Alex',
+//   age:20,
+//   addres: {
+//     city:'Kyiv',
+//     country:'Ukraine',
+//   },
+// }
 
-// const {
-//   name : firstName,
-//   age,
-//   car = 'don`t have a car',
+// // const {
+// //   name : firstName,
+// //   age,
+// //   car = 'don`t have a car',
   
-//   addres: {city:hometown, country}
-// } = person
-// console.log(firstName,age,car,hometown,country);
+// //   addres: {city:hometown, country}
+// // } = person
+// // console.log(firstName,age,car,hometown,country);
 
-// const {name,...info} = person
+// // const {name,...info} = person
 
-// console.log(name,info);
+// // console.log(name,info);
 
 
 
+const myNumber = 42
+
+// localStorage.removeItem('number')
+// console.log(localStorage.getItem('number')); 
+// localStorage.setItem('number', myNumber)
+// console.log(localStorage.getItem('number')); 
+// let num = localStorage.getItem('number')
+// console.log(num);
+// localStorage.clear()
+
+const obj = {
+  name:'vlad',
+  age:22,
+  job:'bvakc',
+}
+
+localStorage.setItem('person', JSON.stringify(obj))
+console.log(JSON.parse(localStorage.getItem('person')));
+
+const raw = JSON.parse(localStorage.getItem('person'))
+raw.name = 'vhlen'
+console.log(raw.name);
+
+// =====================
+
+window.addEventListener('storage', (event) => {
+  console.log(event);
+})
+//window.onstorage = () => {}
