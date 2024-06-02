@@ -334,7 +334,7 @@
 //       fetch(url)
 //         .then(response => response.json())
 //         .then(json => resolve(json))
-//         .catch(error => reject(error))
+        // .catch(error => reject(error))
 
 //     })
 // getData('https://jsonplaceholder.typicode.com/todos')
